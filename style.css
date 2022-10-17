@@ -61,7 +61,7 @@ body {
     font-weight: 600;
     color: crimson;
 }
-.card div {
+.card {
     padding: 10px;
     border-top: none !important;
     border: 1px solid;
