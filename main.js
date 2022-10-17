@@ -1,3 +1,4 @@
+
 let recipe = [
     {
         title: "FLÄSKFILEPLANKA",
@@ -49,65 +50,45 @@ let recipe = [
     },
 ]
 
+const cardsContainer = document.querySelector(".cardsContainer");
+const sortAscendingButton = document.getElementById("sortAscendingBtn");
+const sortDescendingButton = document.getElementById("sortDescendingBtn");
+
+// Hide Fallande Prisordning Button from the webpage
+sortDescendingButton.style.display = "none";
 
 // Creates a card in HTML file
 function createCard(cardNumber) {
-    const cardsContainer = document.querySelector(".cardsContainer");
-    let card = document.createElement("div");
+    const card = document.createElement("div");
     card.classList.add("card");
     cardsContainer.insertAdjacentElement("beforeend", card);
-    let cardImg = document.createElement("img");
-    let cardText = document.createElement("div");
-    card.appendChild(cardImg);
-    card.appendChild(cardText);
-    let cardTitle = document.createElement("h3");
-    let cardPrice = document.createElement("p");
-    let cardButton = document.createElement("button");
+    const cardImg = document.createElement("img");
+    const cardTitle = document.createElement("h3");
+    const cardPrice = document.createElement("p");
+    const cardButton = document.createElement("button");
     cardButton.classList.add("detailsBtn");
     cardButton.setAttribute("type", "submit");
     cardButton.setAttribute("onclick", "openPopup(" + cardNumber + ")");
-    cardText.appendChild(cardTitle);
-    cardText.appendChild(cardPrice);
-    cardText.appendChild(cardButton);
+    card.appendChild(cardImg);
+    card.appendChild(cardTitle);
+    card.appendChild(cardPrice);
+    card.appendChild(cardButton);
     cardImg.setAttribute("src", recipe[cardNumber].image);
     cardTitle.innerHTML = recipe[cardNumber].title;
-    cardPrice.innerHTML = recipe[cardNumber].price;
+    cardPrice.innerHTML = recipe[cardNumber].price + " KR";
     cardButton.innerHTML = "Details";
 }
 
 // Creates all the cards from Array recipe
 function createCards() {
-    for (let i = 0; i < recipe.length; i++) {
-        createCard(i);
-    }
+    recipe.forEach((element, index) => {
+        createCard(index);
+    });
 }
 
 createCards();
 
-// ======================== POPUP MENU ========================
-let popupHeader = document.querySelector(".popupHeader");
-let popupPrice = document.querySelector(".popupPrice");
-let popupImg = document.querySelector(".popupImg");
-let popupText = document.querySelector(".popupText");
-
-// Add content to popup menu
-function addPopupContent(cardNumber) {
-    popupHeader.innerHTML = recipe[cardNumber].title;
-    popupPrice.innerHTML = recipe[cardNumber].price;
-    popupImg.setAttribute("src", recipe[cardNumber].image);
-    popupText.innerHTML = recipe[cardNumber].description;
-}
 
 
 
-//open popup menu
-const POPUP = document.getElementById("popup");
 
-function openPopup(cardNumber) {
-    POPUP.classList.add("openPopup");
-    addPopupContent(cardNumber);
-}
-// Close popup menu
-function closePopup() {
-    POPUP.classList.remove("openPopup");
-}

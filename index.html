@@ -20,17 +20,40 @@
     <div class="container">
         <nav class="navBar">
             <ul class="flex">
-                <li>Alla Rätter</li>
-                <li>Kött</li>
-                <li>Vegetarisk</li>
-                <li>Allergisk</li>
-                <li>Sortera</li>
-                <li>Lägg till recept</li>
+                <li><button onclick="allDishes();">Alla Rätter</button></li>
+                <li><button>Kött</button></li>
+                <li><button>Vegetarisk</button></li>
+                <li><button>Allergisk</button></li>
+                <li><button id="sortAscendingBtn" onclick="sortAscending()">Stigande Prisordning</button></li>
+                <li><button id="sortDescendingBtn" onclick="sortDescending()">Fallande Prisordning</button></li>
+                <li><button>Lägg till recept</button></li>
             </ul>
         </nav>
         <div class="cardsContainer flex">
 
-            <div id="popup" class="popup">
+        </div>
+
+        <div id="popup" class="popup">
+            <div class="popupTitle flex">
+                <h2 class="popupHeader"></h2>
+                <p class="popupPrice"></p>
+                <button class="closeBtn" type="button" onclick="closePopup()">&times;</button>
+            </div>
+            <div class="popupBody">
+                <img class="popupImg" src="./images/food.jpeg" alt="">
+                <p class="popupText"></p>
+            </div>
+        </div>
+
+    </div>
+    <script src="./popup.js"></script>
+    <script src="./main.js"></script>
+    <script src="./navbar_functions.js"></script>
+</body>
+
+</html>
+
+<!--            <div id="popup" class="popup">
                 <div class="popupTitle flex">
                     <h2 class="popupHeader"></h2>
                     <p class="popupPrice"></p>
@@ -40,11 +63,4 @@
                     <img class="popupImg" src="./images/food.jpeg" alt="">
                     <p class="popupText"></p>
                 </div>
-
-            </div>
-        </div>
-    </div>
-    <script src="./main.js"></script>
-</body>
-
-</html>
+            </div>-->
