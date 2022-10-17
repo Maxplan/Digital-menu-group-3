@@ -71,7 +71,7 @@ function createCard(cardNumber) {
     cardText.appendChild(cardButton);
     cardImg.setAttribute("src", recipe[cardNumber].image);
     cardTitle.innerHTML = recipe[cardNumber].title;
-    cardPrice.innerHTML = recipe[cardNumber].price;
+    cardPrice.innerHTML = recipe[cardNumber].price + " KR";
     cardButton.innerHTML = "Details";
 }
 
@@ -93,7 +93,7 @@ let popupText = document.querySelector(".popupText");
 // Add content to popup menu
 function addPopupContent(cardNumber) {
     popupHeader.innerHTML = recipe[cardNumber].title;
-    popupPrice.innerHTML = recipe[cardNumber].price;
+    popupPrice.innerHTML = recipe[cardNumber].price + " KR";
     popupImg.setAttribute("src", recipe[cardNumber].image);
     popupText.innerHTML = recipe[cardNumber].description;
 }
