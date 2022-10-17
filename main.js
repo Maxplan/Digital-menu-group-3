@@ -77,9 +77,9 @@ function createCard(cardNumber) {
 
 // Creates all the cards from Array recipe
 function createCards() {
-    for (let i = 0; i < recipe.length; i++) {
-        createCard(i);
-    }
+    recipe.forEach((element, index) => {
+        createCard(index);
+    });
 }
 
 createCards();
