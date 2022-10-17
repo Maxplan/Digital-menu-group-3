@@ -59,22 +59,20 @@ sortDescendingButton.style.display = "none";
 
 // Creates a card in HTML file
 function createCard(cardNumber) {
-    let card = document.createElement("div");
+    const card = document.createElement("div");
     card.classList.add("card");
     cardsContainer.insertAdjacentElement("beforeend", card);
-    let cardImg = document.createElement("img");
-    let cardText = document.createElement("div");
-    card.appendChild(cardImg);
-    card.appendChild(cardText);
-    let cardTitle = document.createElement("h3");
-    let cardPrice = document.createElement("p");
-    let cardButton = document.createElement("button");
+    const cardImg = document.createElement("img");
+    const cardTitle = document.createElement("h3");
+    const cardPrice = document.createElement("p");
+    const cardButton = document.createElement("button");
     cardButton.classList.add("detailsBtn");
     cardButton.setAttribute("type", "submit");
     cardButton.setAttribute("onclick", "openPopup(" + cardNumber + ")");
-    cardText.appendChild(cardTitle);
-    cardText.appendChild(cardPrice);
-    cardText.appendChild(cardButton);
+    card.appendChild(cardImg);
+    card.appendChild(cardTitle);
+    card.appendChild(cardPrice);
+    card.appendChild(cardButton);
     cardImg.setAttribute("src", recipe[cardNumber].image);
     cardTitle.innerHTML = recipe[cardNumber].title;
     cardPrice.innerHTML = recipe[cardNumber].price + " KR";
