@@ -1,3 +1,4 @@
+
 let recipe = [
     {
         title: "FLÄSKFILEPLANKA",
@@ -49,10 +50,15 @@ let recipe = [
     },
 ]
 
+const cardsContainer = document.querySelector(".cardsContainer");
+const sortAscendingButton = document.getElementById("sortAscendingBtn");
+const sortDescendingButton = document.getElementById("sortDescendingBtn");
+
+// Hide Fallande Prisordning Button from the webpage
+sortDescendingButton.style.display = "none";
 
 // Creates a card in HTML file
 function createCard(cardNumber) {
-    const cardsContainer = document.querySelector(".cardsContainer");
     let card = document.createElement("div");
     card.classList.add("card");
     cardsContainer.insertAdjacentElement("beforeend", card);
@@ -83,3 +89,8 @@ function createCards() {
 }
 
 createCards();
+
+
+
+
+
