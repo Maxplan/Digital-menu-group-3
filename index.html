@@ -20,13 +20,19 @@
     <div class="container">
         <nav class="navBar">
             <ul class="flex">
-                <li><button onclick="allDishes();">Alla Rätter</button></li>
-                <li><button>Kött</button></li>
-                <li><button>Vegetarisk</button></li>
-                <li><button>Allergisk</button></li>
-                <li><button id="sortAscendingBtn" onclick="sortAscending()">Stigande Prisordning</button></li>
-                <li><button id="sortDescendingBtn" onclick="sortDescending()">Fallande Prisordning</button></li>
-                <li><button>Lägg till recept</button></li>
+                <li><button id="meatBtn" onclick="showMeat()">Kött</button></li>
+                <li><button id="vegetarianBtn" onclick="showVegetarian()">Vegetarisk</button></li>
+                <li><select id="allergyBtn" onchange="removeAllergic()">
+                        <option value="none">Allergi</option>
+                        <option value="laktos">Laktos</option>
+                        <option value="gluten">Gluten</option>
+                        <option value="inga">Inga</option>
+                    </select></li>
+                <li><select id="prisordningBtn" onchange="prisordning()">
+                        <option value="none">Prisordning</option>
+                        <option id="stigandeBtn" value="stigande">Stigande</option>
+                        <option value="fallande">Fallande</option>
+                    </select></li>
             </ul>
         </nav>
         <div class="cardsContainer flex">
@@ -52,15 +58,3 @@
 </body>
 
 </html>
-
-<!--            <div id="popup" class="popup">
-                <div class="popupTitle flex">
-                    <h2 class="popupHeader"></h2>
-                    <p class="popupPrice"></p>
-                    <button class="closeBtn" type="button" onclick="closePopup()">&times;</button>
-                </div>
-                <div class="popupBody">
-                    <img class="popupImg" src="./images/food.jpeg" alt="">
-                    <p class="popupText"></p>
-                </div>
-            </div>-->

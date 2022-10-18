@@ -1,7 +1,10 @@
 
-let recipe = [
+let recipes = [
     {
         title: "FLÄSKFILEPLANKA",
+        meat: true,
+        vegetarian: false,
+        alergy: "none",
         price: 149,
         image: "./images/food.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -9,7 +12,21 @@ let recipe = [
                         id, consectetur libero`
     },
     {
+        title: "*HUSETS SCHNITZEL",
+        meat: false,
+        vegetarian: true,
+        alergy: "none",
+        price: 175,
+        image: "./images/food.jpeg",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
+                        omnis modi corrupti? Corporis quas, quos accusamus iste tempora odio, eaque quasi voluptas culpa
+                        id, consectetur libero`
+    },
+    {
         title: "FISH'N CHIPS",
+        meat: true,
+        vegetarian: false,
+        alergy: "none",
         price: 149,
         image: "./images/asparagus.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -17,7 +34,21 @@ let recipe = [
                         id, consectetur libero`
     },
     {
+        title: "*Potatis",
+        meat: false,
+        vegetarian: true,
+        alergy: "laktos",
+        price: 80,
+        image: "./images/bar.jpeg",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
+                        omnis modi corrupti? Corporis quas, quos accusamus iste tempora odio, eaque quasi voluptas culpa
+                        id, consectetur libero`
+    },
+    {
         title: "KRÄMIG KYCKLINGPASTA",
+        meat: true,
+        vegetarian: false,
+        alergy: "none",
         price: 169,
         image: "./images/bar.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -26,6 +57,9 @@ let recipe = [
     },
     {
         title: "BIFF RYDBERG",
+        meat: true,
+        vegetarian: false,
+        alergy: "none",
         price: 175,
         image: "./images/egg.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -33,15 +67,21 @@ let recipe = [
                         id, consectetur libero`
     },
     {
-        title: "HUSETS SCHNITZEL",
-        price: 175,
+        title: 'Hamburgare',
+        meat: true,
+        vegetarian: false,
+        alergy: "gluten",
+        price: 50,
         image: "./images/food.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
                         omnis modi corrupti? Corporis quas, quos accusamus iste tempora odio, eaque quasi voluptas culpa
                         id, consectetur libero`
     },
     {
-        title: "MUSSLOR AL CAVA",
+        title: "*MUSSLOR AL CAVA",
+        meat: false,
+        vegetarian: true,
+        alergy: "none",
         price: 109,
         image: "./images/asparagus.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -51,11 +91,10 @@ let recipe = [
 ]
 
 const cardsContainer = document.querySelector(".cardsContainer");
-const sortAscendingButton = document.getElementById("sortAscendingBtn");
-const sortDescendingButton = document.getElementById("sortDescendingBtn");
-
-// Hide Fallande Prisordning Button from the webpage
-sortDescendingButton.style.display = "none";
+let filterByMeat = false;
+let filterByVegetarian = false;
+let filterByLactos = false;
+let filterByGluten = false;
 
 // Creates a card in HTML file
 function createCard(cardNumber) {
@@ -73,22 +112,31 @@ function createCard(cardNumber) {
     card.appendChild(cardTitle);
     card.appendChild(cardPrice);
     card.appendChild(cardButton);
-    cardImg.setAttribute("src", recipe[cardNumber].image);
-    cardTitle.innerHTML = recipe[cardNumber].title;
-    cardPrice.innerHTML = recipe[cardNumber].price + " KR";
+    cardImg.setAttribute("src", getMenu()[cardNumber].image);
+    cardTitle.innerHTML = getMenu()[cardNumber].title;
+    cardPrice.innerHTML = getMenu()[cardNumber].price + " KR";
     cardButton.innerHTML = "Details";
+}
+
+
+// Create a new Array according to the current state of the user input
+function getMenu() {
+    return recipes.filter(item => {
+        const isMeat = filterByMeat ? item.meat : true;
+        const isVegetarian = filterByVegetarian ? item.vegetarian : true;
+        const isLactos = filterByLactos ? !item.alergy.includes("laktos") : true;
+        const isGluten = filterByGluten ? !item.alergy.includes("gluten") : true;
+        return isMeat && isVegetarian && isLactos && isGluten;
+    });
 }
 
 // Creates all the cards from Array recipe
 function createCards() {
-    recipe.forEach((element, index) => {
+    getMenu().forEach((element, index) => {
         createCard(index);
     });
 }
 
 createCards();
-
-
-
 
 
