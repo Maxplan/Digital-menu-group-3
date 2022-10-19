@@ -14,7 +14,7 @@ function showMeat() {
     } else {
         filterByMeat = true;
         filterByVegetarian = false;   // To disable (Vegetarian) button if it is enabled
-        meatButton.style.backgroundColor = "red";
+        meatButton.style.backgroundColor = "#d2d2d2";
         vegetarianButton.style.backgroundColor = "white";   // To show that (Vegetarian) button is disabled
         cardsContainer.innerHTML = "";
         createCards();
@@ -34,7 +34,7 @@ function showVegetarian() {
         filterByVegetarian = true;
         filterByMeat = false;   // To disable (Kött) button if it is enabled
         meatButton.style.backgroundColor = "white"; // To show that (Kött) button is disabled
-        vegetarianButton.style.backgroundColor = "red";
+        vegetarianButton.style.backgroundColor = "#d2d2d2";
         cardsContainer.innerHTML = "";
         createCards();
     }
@@ -44,13 +44,13 @@ function showVegetarian() {
 
 function removeAllergic() {
     if (allergyButton.value === "laktos") {
-        allergyButton.style.backgroundColor = "red";
+        allergyButton.style.backgroundColor = "#d2d2d2";
         filterByLactos = true;
         filterByGluten = false;
         cardsContainer.innerHTML = "";
         createCards();
     } else if (allergyButton.value === "gluten") {
-        allergyButton.style.backgroundColor = "red";
+        allergyButton.style.backgroundColor = "#d2d2d2";
         filterByGluten = true;
         filterByLactos = false;
         cardsContainer.innerHTML = "";
@@ -80,10 +80,10 @@ function sortDescending() {
 
 function prisordning() {
     if (priceSortButton.value === "stigande") {
-        priceSortButton.style.backgroundColor = "red";
+        priceSortButton.style.backgroundColor = "#d2d2d2";
         sortAscending();
     } else if (priceSortButton.value === "fallande") {
-        priceSortButton.style.backgroundColor = "red";
+        priceSortButton.style.backgroundColor = "#d2d2d2";
         sortDescending();
     } else {
         priceSortButton.style.backgroundColor = "white";
