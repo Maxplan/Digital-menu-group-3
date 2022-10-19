@@ -35,14 +35,14 @@ body {
     aspect-ratio: 1;
 }
 .headerContent h1{
-    font-size: 1.25em;
+    font-size: 60px;
     margin-right: auto;
-    padding-left: 50px;
+    padding-left: 100px;
     font-weight: 500;
 }
 .navBar{
     background-color: #565656;
-    width: 15vw;
+    width: 25vw;
     margin: 0; 
     padding: 0;
     height: 85vh;
@@ -97,6 +97,7 @@ body {
     min-height: 85%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 
@@ -127,7 +128,7 @@ body {
     background-color: #f7f7f7;
     display: flex;
     flex-direction: column;
-    width: 220px;
+    width: 200px;
     height: 300px;
     align-items: center;
     color: #333333;
@@ -208,3 +209,17 @@ body {
     background: none;
     width: fit-content;
 }
+@media screen and (max-width: 1000px)  {
+    .navBar{
+        width: 35vw;
+        height: auto;
+        min-height: 85vh;
+    }
+    .navBar button, .navBar select{
+        height: 4vh;
+    }
+    .cardsContainer{
+        justify-content: space-around;
+        align-content: flex-start;
+    }
+  }
