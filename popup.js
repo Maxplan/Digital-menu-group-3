@@ -5,10 +5,10 @@ let popupText = document.querySelector(".popupText");
 
 // Add content to popup menu
 function addPopupContent(cardNumber) {
-    popupHeader.innerHTML = recipe[cardNumber].title;
-    popupPrice.innerHTML = recipe[cardNumber].price + " KR";
-    popupImg.setAttribute("src", recipe[cardNumber].image);
-    popupText.innerHTML = recipe[cardNumber].description;
+    popupHeader.innerHTML = getMenu()[cardNumber].title;
+    popupPrice.innerHTML = getMenu()[cardNumber].price + " KR";
+    popupImg.setAttribute("src", getMenu()[cardNumber].image);
+    popupText.innerHTML = getMenu()[cardNumber].description;
 }
 
 
