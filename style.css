@@ -38,11 +38,13 @@ body {
     font-size: 60px;
     font-weight: 500;
 }
-.headerContent i{
+.headerContent i, i::before{
     width: 100px;
+    height: 100px;
     display: flex;
     background-size: contain;
     justify-content: space-evenly;
+    align-items: center;
 }
 .headerContent p{
     font-size: 2rem;
@@ -154,7 +156,24 @@ body {
     border: 1px solid #777777bb;
     color: #333333;
 }
-
+.cartListItem div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #f7f7f7;
+    height: 35px;
+}
+.cartListItem button{
+    height: 35px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.cartListItem p{
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
 /*========== PUPUP ==========*/
 .popup {
     position: fixed;
