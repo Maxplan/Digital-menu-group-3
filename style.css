@@ -20,7 +20,7 @@ body {
 
 .headerContent {
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     font-size: 5vw;
     padding: 5px 25px;
     display: flex;
@@ -36,16 +36,22 @@ body {
 }
 .headerContent h1{
     font-size: 60px;
-    margin-right: auto;
-    padding-left: 100px;
     font-weight: 500;
+}
+.headerContent i{
+    width: 100px;
+    display: flex;
+    background-size: contain;
+    justify-content: space-evenly;
+}
+.headerContent p{
+    font-size: 2rem;
 }
 .navBar{
     background-color: #565656;
     width: 25vw;
     margin: 0; 
     padding: 0;
-    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -129,9 +135,12 @@ body {
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 300px;
+    height: 350px;
     align-items: center;
     color: #333333;
+}
+.card h3{
+    font-size: 100%;
 }
 
 .detailsBtn {
@@ -209,6 +218,13 @@ body {
     background: none;
     width: fit-content;
 }
+.cartPopup{
+    width: 25vw;
+    background-color: #565656;
+    border-right: 1px solid rgba(128, 128, 128, 0.701);
+    color: #f7f7f7;
+    padding: 20px;
+}
 @media screen and (max-width: 1000px)  {
     .navBar{
         width: 35vw;
@@ -221,5 +237,11 @@ body {
     .cardsContainer{
         justify-content: space-around;
         align-content: flex-start;
+    }
+    .card{
+        width: 180px;
+    }
+    .cartPopup{
+        width: 35vw;
     }
   }
