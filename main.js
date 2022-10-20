@@ -4,7 +4,7 @@ let recipes = [
         title: "FLÄSKFILEPLANKA",
         meat: true,
         vegetarian: false,
-        alergy: "none",
+        allergy: "none",
         price: 149,
         image: "./images/food.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -12,10 +12,10 @@ let recipes = [
                         id, consectetur libero`
     },
     {
-        title: "*HUSETS SCHNITZEL",
+        title: "HUSETS SCHNITZEL",
         meat: false,
         vegetarian: true,
-        alergy: "none",
+        allergy: "none",
         price: 175,
         image: "./images/food.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -26,7 +26,7 @@ let recipes = [
         title: "FISH'N CHIPS",
         meat: true,
         vegetarian: false,
-        alergy: "none",
+        allergy: "none",
         price: 149,
         image: "./images/asparagus.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -34,10 +34,10 @@ let recipes = [
                         id, consectetur libero`
     },
     {
-        title: "*Potatis",
+        title: "Potatis",
         meat: false,
         vegetarian: true,
-        alergy: "laktos",
+        allergy: "laktos",
         price: 80,
         image: "./images/bar.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -48,7 +48,7 @@ let recipes = [
         title: "KRÄMIG KYCKLINGPASTA",
         meat: true,
         vegetarian: false,
-        alergy: "none",
+        allergy: "none",
         price: 169,
         image: "./images/bar.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -59,7 +59,7 @@ let recipes = [
         title: "BIFF RYDBERG",
         meat: true,
         vegetarian: false,
-        alergy: "none",
+        allergy: "none",
         price: 175,
         image: "./images/egg.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -67,10 +67,10 @@ let recipes = [
                         id, consectetur libero`
     },
     {
-        title: 'Hamburgare',
+        title: "Hamburgare",
         meat: true,
         vegetarian: false,
-        alergy: "gluten",
+        allergy: "gluten",
         price: 50,
         image: "./images/food.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -78,10 +78,10 @@ let recipes = [
                         id, consectetur libero`
     },
     {
-        title: "*MUSSLOR AL CAVA",
+        title: "MUSSLOR AL CAVA",
         meat: false,
         vegetarian: true,
-        alergy: "none",
+        allergy: "none",
         price: 109,
         image: "./images/asparagus.jpeg",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel dicta excepturi quo,
@@ -105,17 +105,23 @@ function createCard(cardNumber) {
     const cardTitle = document.createElement("h3");
     const cardPrice = document.createElement("p");
     const cardButton = document.createElement("button");
+    const addToCartBtn = document.createElement("button");
     cardButton.classList.add("detailsBtn");
     cardButton.setAttribute("type", "submit");
     cardButton.setAttribute("onclick", "openPopup(" + cardNumber + ")");
+    addToCartBtn.classList.add("detailsBtn");
+    addToCartBtn.setAttribute("type", "submit");
+    addToCartBtn.setAttribute("onclick", "addToCart(" + cardNumber + ")");
     card.appendChild(cardImg);
     card.appendChild(cardTitle);
     card.appendChild(cardPrice);
     card.appendChild(cardButton);
+    card.appendChild(addToCartBtn);
     cardImg.setAttribute("src", getMenu()[cardNumber].image);
     cardTitle.innerHTML = getMenu()[cardNumber].title;
     cardPrice.innerHTML = getMenu()[cardNumber].price + " KR";
     cardButton.innerHTML = "Details";
+    addToCartBtn.innerHTML = "Lägg till Cart";
 }
 
 
@@ -124,8 +130,8 @@ function getMenu() {
     return recipes.filter(item => {
         const isMeat = filterByMeat ? item.meat : true;
         const isVegetarian = filterByVegetarian ? item.vegetarian : true;
-        const isLactos = filterByLactos ? !item.alergy.includes("laktos") : true;
-        const isGluten = filterByGluten ? !item.alergy.includes("gluten") : true;
+        const isLactos = filterByLactos ? !item.allergy.includes("laktos") : true;
+        const isGluten = filterByGluten ? !item.allergy.includes("gluten") : true;
         return isMeat && isVegetarian && isLactos && isGluten;
     });
 }
