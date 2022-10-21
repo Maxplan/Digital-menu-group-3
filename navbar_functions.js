@@ -101,7 +101,7 @@ const counter = document.getElementById("counter");
 const shoppingList = [];
 let cartItemsCounter = 0;
 
-// Create card to display in cart list
+// Create card to display it in cart list
 function createCartItem(cardNumber) {
     const cartListItem = document.createElement("div");
     const cartItemHeader = document.createElement("div");
