@@ -111,7 +111,7 @@ function createCard(cardNumber) {
     cardButton.setAttribute("onclick", "openPopup(" + cardNumber + ")");
     addToCartBtn.classList.add("detailsBtn");
     addToCartBtn.setAttribute("type", "submit");
-    addToCartBtn.setAttribute("onclick", "addToCart(" + cardNumber + "); openShoppingCart();");
+    addToCartBtn.setAttribute("onclick", "addToCart(" + cardNumber + ") openShoppingCart()");
     card.appendChild(cardImg);
     card.appendChild(cardTitle);
     card.appendChild(cardPrice);
